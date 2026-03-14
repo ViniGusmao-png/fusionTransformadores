@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Fusion Transformadores | Soluções em Energia e Manutenção",
-  description: "Fabricação, conserto e manutenção de transformadores industriais em Jundiaí - SP. Alta tecnologia e confiança com Henrique Gusmão.",
+  description: "Fabricação, conserto e manutenção de transformadores industriais em Jundiaí - SP. Alta tecnologia e confiança na Fusion Transformadores.",
 };
 
 export default function RootLayout({

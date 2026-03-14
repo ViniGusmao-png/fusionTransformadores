@@ -120,15 +120,13 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* RODAPÉ / ENDEREÇO - Henrique Gusmão */}
       <footer
         id="contato"
         className="bg-slate-900 text-white py-12 border-t-8 border-[#0F55C9]"
       >
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-left">
-            <h3 className="text-2xl font-bold mb-2">Henrique Gusmão</h3>
+            <h3 className="text-2xl font-bold mb-2">Fusion Transformadores</h3>
             <p className="text-[#0F55C9] font-medium mb-4 italic">
               Transformadores & Manutenção
             </p>
