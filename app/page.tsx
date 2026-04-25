@@ -42,49 +42,42 @@ export default function Home() {
 
       <section
         id="home"
-        className="relative h-[400px] flex items-center justify-center bg-slate-900 overflow-hidden"
+        className="relative h-[500px] flex items-center justify-center overflow-hidden"
       >
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-          >
-            <style>{`
-        @keyframes lightning-flash {
-          0%, 10%, 90%, 100% { opacity: 0; }
-          11%, 14%, 80% { opacity: 1; stroke-width: 0.7; }
-          12%, 81% { opacity: 0.2; }
-          13% { opacity: 0.8; }
-        }
-        .ray { fill: none; stroke: #dfe6ff; filter: drop-shadow(0 0 8px #0F55C9); }
-        .ray-1 { animation: lightning-flash 5s infinite; }
-        .ray-2 { animation: lightning-flash 8s infinite 2s; }
-        .ray-3 { animation: lightning-flash 6s infinite 4s; }
-      `}</style>
-            <path
-              className="ray ray-1"
-              d="M 15,0 L 10,20 L 18,35 L 8,55 L 14,75 L 10,100"
-            />
-            <path
-              className="ray ray-2"
-              d="M 85,0 L 90,20 L 82,40 L 92,60 L 85,80 L 88,100"
-            />
-            <path
-              className="ray ray-3"
-              d="M 50,0 L 53,15 L 47,30 L 52,50 L 48,70 L 50,100"
-            />
-          </svg>
+        {/* Imagem de Fundo com Next/Image para performance */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/fundo.png"
+            alt="Background Fusion"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Overlay escuro para dar leitura ao texto */}
+          <div className="absolute inset-0 bg-slate-600/60 bg-gradient-to-b from-slate-900/40 to-slate-900/80"></div>
         </div>
-        <div className="absolute inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum.png')]"></div>
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl font-extrabold mb-4 uppercase italic">
+
+        {/* CSS para as animações suaves */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          .animate-fade-in-up {
+            animation: fadeInUp 1.2s ease-out forwards;
+          }
+          .delay-200 { animation-delay: 0.2s; }
+        `}} />
+
+        <div className="relative z-10 text-center text-white px-4 max-w-5xl">
+          <h1 className="text-5xl font-extrabold mb-6 uppercase italic tracking-tighter animate-fade-in-up">
             Alta Tecnologia em Energia
           </h1>
-          <p className="text-xl max-w-2xl mx-auto font-light">
-            Fabricação, conserto e manutenção de transformadores em Jundiaí –
-            SP. Soluções robustas para o seu sistema elétrico industrial.
+
+          <p className="text-lg md:text-xl font-light leading-relaxed animate-fade-in-up delay-200 opacity-0" style={{ animationFillMode: 'forwards' }}>
+            A Fusion Transformadores atua na fabricação e comercialização de transformadores para diversas aplicações industriais.
+            Oferecemos produtos de alta qualidade, desenvolvidos com tecnologia e materiais confiáveis, garantindo segurança e eficiência para nossos clientes.
+            Trabalhamos com transformadores isoladores, de comando e modelos especiais sob medida.
           </p>
         </div>
       </section>
@@ -127,14 +120,14 @@ export default function Home() {
             <div className="p-6 border rounded-xl shadow-md hover:shadow-2xl transition">
               <div className="h-48 bg-slate-100 mb-4 rounded flex items-center justify-center">
                 <span className="text-slate-400">
-                  <img src="/transformador1.png" alt="transformador para placa PCI" className="h-50" />
+                  <img src="/transformador2.png" alt="transformador para placa PCI" className="h-50" />
                 </span>
               </div>
               <h3 className="font-bold text-xl text-[#0F55C9] mb-2">
-                Transformador para placa PCI
+                Transformador Trifásico Isolador de Controle
               </h3>
               <p className="text-sm text-slate-600">
-                Transformador desenvolvido para alimentção de circuitos eletrônicos e placas de controle, garantindo estabilidade, segurança e desempenho em equipamentos eletrônicos e sistemas de automação.
+                O transformador trifásico isolador de controle é desenvolvido para alimentação de circuitos de comando e proteção em sistemas industriais, garantindo isolamento elétrico entre a rede e o circuito de controle
               </p>
             </div>
           </div>
@@ -146,11 +139,7 @@ export default function Home() {
       >
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-left">
-            <h3 className="text-2xl font-bold mb-2">Fusion Transformadores</h3>
-            <p className="text-[#0F55C9] font-medium mb-4 italic">
-              Transformadores & Manutenção
-            </p>
-            <p className="flex items-center gap-2">📍 Jundiaí – SP</p>
+            <p className="flex items-center text-[18px] gap-2">📍 Jundiaí – SP</p>
             <a
               href="https://wa.me/5511939334749"
               target="_blank"
@@ -158,6 +147,7 @@ export default function Home() {
             >
               💬 (11) 93933-4749
             </a>
+            <a className="hover:underline text-[#0F55C9] font-bold text-[18px]" href="mailto:contato@fusiontransformadores.com.br">contato@fusiontransformadores.com.br</a>
           </div>
           <div>
             <iframe
